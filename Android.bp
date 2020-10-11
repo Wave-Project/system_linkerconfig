@@ -99,6 +99,12 @@ cc_binary {
         // we can't list it here because the exact version is unknown at build-time. It is decided
         // at runtime according to ro.vndk.version (or ro.product.vndk.version)
     ],
+
+    // Device does not boot when global ThinLTO is enabled for linkerconfig.
+    // http://b/170573443
+    lto: {
+        never: true,
+    },
 }
 
 cc_test {
